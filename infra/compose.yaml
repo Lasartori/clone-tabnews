@@ -1,8 +1,8 @@
 services:
   database:
     image: 'postgres:16.0-alpine3.18'
-    environment:
-      POSTGRES_PASSWORD: 'local_password'
+    env_file:
+      - ../.env
     ports:
       - "5432:5432"
 
@@ -10,3 +10,5 @@ services:
 
 
 # psql --host=localhost --username=postgres --port=5432
+# Subir o docke de acordo com a pasta que ele está
+# docker compose -f infra/compose.yaml up -d
